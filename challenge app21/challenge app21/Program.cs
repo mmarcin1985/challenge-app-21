@@ -1,37 +1,24 @@
-﻿/*liczny całkowite
-int myAge = 120;
-int newAge = myAge + 5;
-//Console.WriteLine(newAge);
-int myVar = int.MinValue;
-uint myVar2 = uint.MaxValue;
+﻿
+var name = "Ewa";
+var isWomen = true;
+var age = 44;
 
-//liczby zmienno przecinkowe
-ulong myVar3 = ulong.MaxValue;
-float myNumber = float.MaxValue;
-double myNumer = double.MaxValue;
-
-// zmienne tekstowe
-string name = "Marcin";
-string surname = "Brzoska";
-string results = name + " " + surname  +  myNumber;
-//Console.Write(results);
-char myVar5 = 'a';
-//var result2 = name.ToArray();
-
-//zmienna logiczna
-bool isActive = true;
-isActive  = false;
-var isValid = 5 > 6;
-Console.WriteLine(isValid); */
-
-var number1 = 7;
-var number2 = 6;
-
-if (number1 > number2)
+if (name == "Ewa" && isWomen && age == 33)
 {
-Console.WriteLine("jestem w lini 31");
+    Console.WriteLine("Ewa, lat 33");
+}
+else if (isWomen && age < 30)
+{
+    Console.WriteLine("Kobieta poniżej 30 lat");
 }
 else
 {
-Console.WriteLine("Jestem w lini 36");
+    if (!isWomen && age < 18)
+    {
+        Console.WriteLine("Niepełnoletni mężczyzna");
+    }
+    else
+    {
+        Console.WriteLine("to ktoś inny");
+    }
 }
