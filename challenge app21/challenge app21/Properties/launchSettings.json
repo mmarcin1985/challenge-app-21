@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "challenge app21": {
+      "commandName": "Project"
+    },
+    "Profil 1": {
+      "commandName": "Project"
+    },
+    "Profil 2": {
+      "commandName": "Project"
+    }
+  }
+}
