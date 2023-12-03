@@ -1,20 +1,45 @@
-﻿int number = 15496224;
+﻿using challenge_app21;
 
-string numberInString = number.ToString();  // tworzy string z liczbt
-char[] digitsInString = numberInString.ToArray();  // dzieli string na tablice znaków
-int[] digitCount = new int[10];
-int digitInNumber = 0; // zmienna użyta w pętli do indeksowania zliczanych cyf
+Employee emp1 = new Employee("Marcin", "Winer" , 38);
+Employee emp2 = new Employee("Edward", "Loser" , 23);
+Employee emp3 = new Employee("Andrzej", "Averager" , 35);
+
+emp1.AddScore(9);
+emp2.AddScore(9);
+emp3.AddScore(9);
+emp1.AddScore(9);
+emp2.AddScore(9);
+emp3.AddScore(9);
+emp1.AddScore(9);
+emp2.AddScore(9);
+emp3.AddScore(9);
 
 
-foreach (var digit in digitsInString)    // zlicza wystąpienia każdej cyfry
+List<Employee> emps = new List<Employee>()
 {
-    digitInNumber = int.Parse(digit.ToString());
-    digitCount[digitInNumber] = digitCount[digitInNumber] + 1;
-} 
+    emp1,emp2,emp3
+};
+
+int maxRate = 0;
+List<Employee> bestsEmp = new List<Employee>(); // Lista użytkownikow z najlepszym rezulatem na wypadek kilku z tym samym 
 
 
-for (var i = 0; i < 10; i++)
+foreach (var emp in emps)  // ustalamy najwyższa ocenę
 {
-    Console.WriteLine(i + "Liczba wystąpień :" + digitCount[i]);
+    if (emp.Rating > maxRate)
+        maxRate = emp.Rating;
 }
 
+
+foreach (var emp in emps)  // wyszukujemy użytkownikow z najwyżsża oceną i dodajemy do listy
+{
+    if (emp.Rating == maxRate)
+        bestsEmp.Add(emp);
+}
+
+Console.WriteLine("Najlepszy/najlepsze wyniki :  " + maxRate + " uzyskał/ła/li:  ");
+
+foreach (var emp in bestsEmp)  //drukujemy użytkownikow z najlepszym wynikiem
+{
+    Console.WriteLine(emp.Name);
+}
