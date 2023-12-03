@@ -16,12 +16,16 @@
         public string Surname { get; private set; }
         public int Age { get; private set; }
 
-        public void AddScore (int rate)
+        public void AddScoreAward (int rate)
         {
             this.score.Add(rate);
         }
 
-        
+        public void AddScorePunish(int rate)
+        {
+            this.score.Add(-rate);
+        }
+
         public int Rating
         {
             get

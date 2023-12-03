@@ -4,15 +4,19 @@ Employee emp1 = new Employee("Marcin", "Winer" , 38);
 Employee emp2 = new Employee("Edward", "Loser" , 23);
 Employee emp3 = new Employee("Andrzej", "Averager" , 35);
 
-emp1.AddScore(9);
-emp2.AddScore(9);
-emp3.AddScore(9);
-emp1.AddScore(9);
-emp2.AddScore(9);
-emp3.AddScore(9);
-emp1.AddScore(9);
-emp2.AddScore(9);
-emp3.AddScore(9);
+emp1.AddScoreAward(9);
+emp2.AddScoreAward(9);
+emp3.AddScoreAward(9);
+emp1.AddScoreAward(5);
+emp2.AddScoreAward(9);
+emp3.AddScoreAward(9);
+emp1.AddScoreAward(9);
+emp2.AddScoreAward(9);
+emp3.AddScoreAward(9);
+
+emp1.AddScorePunish(8);
+emp2.AddScorePunish(7);
+emp3.AddScorePunish(1);
 
 
 List<Employee> emps = new List<Employee>()
@@ -41,5 +45,5 @@ Console.WriteLine("Najlepszy/najlepsze wyniki :  " + maxRate + " uzyskał/ła/li
 
 foreach (var emp in bestsEmp)  //drukujemy użytkownikow z najlepszym wynikiem
 {
-    Console.WriteLine(emp.Name);
+    Console.WriteLine(emp.Name + "   "  + emp.Surname);
 }
