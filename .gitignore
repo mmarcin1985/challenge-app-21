@@ -396,3 +396,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/challenge app21/challenge app21.Tests/EmployeeTests.cs
