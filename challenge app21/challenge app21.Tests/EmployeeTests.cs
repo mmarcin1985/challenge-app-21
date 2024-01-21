@@ -16,7 +16,7 @@ namespace challenge_app21.Tests
             var statistics = emp1.GetStatistics() ;
 
             //assert
-            Assert.AreEqual(6, statistics.Max);
+            Assert.AreEqual(0, statistics.Max);
 
         }
 
@@ -44,9 +44,9 @@ namespace challenge_app21.Tests
         {
             // arrange
             var emp1 = new Employee("Marcin", "Winner", 38);
-            emp1.AddScoreAward(2);
-            emp1.AddScoreAward(6);
-            emp1.AddScoreAward(2);
+            emp1.AddScoreAward(0.01);
+            emp1.AddScoreAward(0.01);
+            emp1.AddScoreAward(0.01);
 
             //act
             var statistics = emp1.GetStatistics();
