@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.Design;
-using System.Runtime.CompilerServices;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿
 
 namespace challenge_app21
 {
@@ -80,7 +78,7 @@ namespace challenge_app21
                 return this.score.Sum();
             }
         }
-        public Statistics GetStatistics ()
+        public Statistics GetStatisticsWithForEach ()
         {
             var statistics = new Statistics ();
             statistics.Average = 0;
@@ -93,6 +91,59 @@ namespace challenge_app21
                 statistics.Average += score;
             }
             statistics.Average /=  this.score.Count;
+            return statistics;
+        }
+
+        public Statistics GetStatisticsWithFor()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            for (int i = 0; i < this.score.Count; i++)
+            {
+                statistics.Max = Math.Max(statistics.Max, this.score[i]);
+                statistics.Min = Math.Min(statistics.Min, this.score[i]);
+                statistics.Average += this.score[i];
+            }
+            statistics.Average /= this.score.Count;
+            return statistics;
+        }
+
+        public Statistics GetStatisticsWithDoWhile()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            int i = 0;
+            do
+            {
+                statistics.Max = Math.Max(statistics.Max, this.score[i]);
+                statistics.Min = Math.Min(statistics.Min, this.score[i]);
+                statistics.Average += this.score[i];
+                i++;
+            }
+            while (i < (this.score.Count));
+
+            statistics.Average /= this.score.Count;
+            return statistics;
+        }
+        public Statistics GetStatisticsWithWhileDo()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            int i = 0;
+            while (i < (this.score.Count))   
+            {
+                statistics.Max = Math.Max(statistics.Max, this.score[i]);
+                statistics.Min = Math.Min(statistics.Min, this.score[i]);
+                statistics.Average += this.score[i];
+                i++;
+            }
+            statistics.Average /= this.score.Count;
             return statistics;
         }
     }
