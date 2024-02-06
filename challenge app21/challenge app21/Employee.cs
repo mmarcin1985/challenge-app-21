@@ -44,15 +44,15 @@ namespace challenge_app21
                 {
                     case "a":
                     case "A":
-                        this.score.Add(100);
+                        this.AddScoreAward(100);
                         break;
                     case "b":
                     case "B":
-                        this.score.Add(80);
+                        this.AddScoreAward(80);
                         break;
                     case "c":
                     case "C":
-                        this.score.Add(60);
+                        this.AddScoreAward(60);
                         break;
                     case "d":
                     case "D":
@@ -60,7 +60,7 @@ namespace challenge_app21
                         break;
                     case "e":
                     case "E":
-                        this.score.Add(20);
+                        this.AddScoreAward(20);
                         break;
                     case "f":
                     case "F":
