@@ -64,7 +64,7 @@ namespace challenge_app21
                         break;
                     case "f":
                     case "F":
-                        this.score.Add(0);
+                        this.AddScoreAward(0);
                         break;
                     default:
                         Console.WriteLine("Incorrect letter or string please input letter A/a, B/b,C/c, D/d, E/e  or Q/q to quit");
