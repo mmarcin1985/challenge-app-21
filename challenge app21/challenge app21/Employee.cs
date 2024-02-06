@@ -56,7 +56,7 @@ namespace challenge_app21
                         break;
                     case "d":
                     case "D":
-                        this.score.Add(40);
+                        this.AddScoreAward(40);
                         break;
                     case "e":
                     case "E":
