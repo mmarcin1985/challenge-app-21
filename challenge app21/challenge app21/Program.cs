@@ -16,8 +16,14 @@ while (true)
     {
         break;
     }
-    emp1.AddScoreAward(input);
-
+    try
+    {
+        emp1.AddScoreAward(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine ($"Exception catched: {e.Message}");
+    }
 }
 
 var statistics = emp1.GetStatistic();

@@ -26,7 +26,7 @@ namespace challenge_app21
             }
             else
             {
-                Console.WriteLine($" {rate}  poza zakresem należy podać ocene z zakresu 0-100");
+                throw new Exception($" {rate} out of range please input number from range  0-100");
             }
         }
 
@@ -67,7 +67,7 @@ namespace challenge_app21
                         this.AddScoreAward(0);
                         break;
                     default:
-                        Console.WriteLine("Incorrect letter or string please input letter A/a, B/b,C/c, D/d, E/e  or Q/q to quit");
+                        throw new Exception  ("Incorrect letter or string please input letter A/a, B/b,C/c, D/d, E/e, number from range 0-100  or Q/q to quit");
                         break;
                 }
             }
