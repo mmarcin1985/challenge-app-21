@@ -68,7 +68,7 @@ namespace challenge_app21
                         break;
                     default:
                         throw new Exception  ("Incorrect letter or string please input letter A/a, B/b,C/c, D/d, E/e, number from range 0-100  or Q/q to quit");
-                        break;
+                        //break;
                 }
             }
         }
@@ -112,34 +112,42 @@ namespace challenge_app21
                 statistics.Min = Math.Min(statistics.Min, score);
                 statistics.Average += score;
             }
-            statistics.Average /= this.score.Count;
-            statistics.NumberOfNotes = this.score.Count;
 
-            switch (statistics.Average)
+            if (this.score.Count > 0)
             {
-                case var average when average >= 90:
-                    statistics.Rank = 'A';
-                    break;
-                case var average when average >= 70:
-                    statistics.Rank = 'B';
-                    break;
-                case var average when average >= 50:
-                    statistics.Rank = 'C';
-                    break;
-                case var average when average >= 30:
-                    statistics.Rank = 'D';
-                    break;
-                case var average when average >= 10:
-                    statistics.Rank = 'E';
-                    break;
-                case var average when average >= 0:
-                    statistics.Rank = 'F';
-                    break;
-                default:
-                    statistics.Rank = 'N';
-                    break;
+                statistics.Average /= this.score.Count;
+                statistics.NumberOfNotes = this.score.Count;
+
+                switch (statistics.Average)
+                {
+                    case var average when average >= 90:
+                        statistics.Rank = 'A';
+                        break;
+                    case var average when average >= 70:
+                        statistics.Rank = 'B';
+                        break;
+                    case var average when average >= 50:
+                        statistics.Rank = 'C';
+                        break;
+                    case var average when average >= 30:
+                        statistics.Rank = 'D';
+                        break;
+                    case var average when average >= 10:
+                        statistics.Rank = 'E';
+                        break;
+                    case var average when average >= 0:
+                        statistics.Rank = 'F';
+                        break;
+                    default:
+                        statistics.Rank = 'N';
+                        break;
+                }
+                return statistics;
             }
-            return statistics;
+            else
+            {
+                throw new Exception("No correct rate added, statistics can not be generated");
+            }
         }
     }
 }

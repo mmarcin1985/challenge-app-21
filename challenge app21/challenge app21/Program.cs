@@ -26,9 +26,16 @@ while (true)
     }
 }
 
-var statistics = emp1.GetStatistic();
-Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max {statistics.Max}");
-Console.WriteLine($"Average {Math.Round(statistics.Average,2)}");
-Console.WriteLine($"Number of notes {statistics.NumberOfNotes}");
-Console.WriteLine($"Rank {statistics.Rank}");
+try
+{
+    var statistics = emp1.GetStatistic();
+    Console.WriteLine($"Min: {statistics.Min}");
+    Console.WriteLine($"Max {statistics.Max}");
+    Console.WriteLine($"Average {Math.Round(statistics.Average, 2)}");
+    Console.WriteLine($"Number of notes {statistics.NumberOfNotes}");
+    Console.WriteLine($"Rank {statistics.Rank}");
+}
+catch (Exception e)
+{
+    Console.WriteLine($"Exception catched: {e.Message}");
+}
