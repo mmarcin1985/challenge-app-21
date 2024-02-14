@@ -3,10 +3,7 @@
 Console.WriteLine("Welcome in employee evaluation app");
 Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-var emp1 = new Employee("Marcin", "Winer" );
-
-//testy jedmostkowe dla liter
-// ocena koncowa w literach 
+var emp1 = new Employee("Marcin", "Winer", "male");
 
 while (true)
 {

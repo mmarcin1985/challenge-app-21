@@ -4,21 +4,35 @@ using System.ComponentModel.Design;
 
 namespace challenge_app21
 {
-    public class Employee
+    public class Employee : Person
     {
         private List<float> score = new List<float>();
 
-        public
-            Employee(string name, string surname)
-        {
-            this.Name = name;
-            this.Surname = surname;
-        }
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
-        public int Age { get; private set; }
 
-        public void AddScoreAward(float rate)  // obsłuży rownież int
+        public Employee(string name, string surname, string sex, int age)  
+          : base(name, surname, sex, age)
+        {
+        }
+
+        /*  konstrutory nie do użycia przy tworzeniu pracownika dla ktorego należy podac wszystkie dane ,
+         *  w kolejnym etapie pracownik otrzyma dodatkowe propercje jak funkcja, id
+        public Employee(string name, string surname, string sex)
+         : base(name, surname, sex)
+        {
+        }
+
+        public Employee(string name, string surname)
+          : base(name, surname)
+        {
+        }
+
+        public Employee(string name)
+          : base(name)
+        {
+        }
+        */
+
+        public void AddScoreAward(float rate)
         {
             if (rate >= 0 && rate <= 100)
             {
@@ -67,7 +81,7 @@ namespace challenge_app21
                         this.AddScoreAward(0);
                         break;
                     default:
-                        throw new Exception  ("Incorrect letter or string please input letter A/a, B/b,C/c, D/d, E/e, number from range 0-100  or Q/q to quit");
+                        throw new Exception("Incorrect letter or string please input letter A/a, B/b,C/c, D/d, E/e, number from range 0-100  or Q/q to quit");
                         //break;
                 }
             }
@@ -88,7 +102,7 @@ namespace challenge_app21
             this.AddScoreAward(rate1);
         }
 
-       
+
 
 
         public float Rating
