@@ -3,12 +3,12 @@
 Console.WriteLine("Welcome in employee evaluation app");
 Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-var emp1 = new Employee("Marcin", "Winer", "male");
+var emp1 = new Supervisor("Marcin", "Winer", "male",39);
 
 while (true)
 {
     Console.WriteLine(" Input employee evaluation or q to finish");
-    var input = Console.ReadLine();
+    string input = Console.ReadLine();
     if ((input == "q" ) || (input == "Q"))
     {
         break;

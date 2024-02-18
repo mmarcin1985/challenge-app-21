@@ -1,14 +1,12 @@
-﻿
-
-using System.ComponentModel.Design;
+﻿using System.Reflection.Metadata;
 
 namespace challenge_app21
 {
-    public class Employee : IEmployee
+    public class Supervisor : IEmployee
     {
         private List<float> score = new List<float>();
 
-        public Employee(string name, string surname, string sex, int age)
+        public Supervisor(string name, string surname, string sex, int age)
         {
             this.Name = name;
             this.Surname = surname;
@@ -20,28 +18,9 @@ namespace challenge_app21
         public string Surname { get; private set; }
         public string Sex { get; private set; }
         public int Age { get; private set; }
-    
 
 
-    /*  konstrutory nie do użycia przy tworzeniu pracownika dla ktorego należy podac wszystkie dane ,
-     *  w kolejnym etapie pracownik otrzyma dodatkowe propercje jak funkcja, id
-    public Employee(string name, string surname, string sex)
-     : base(name, surname, sex)
-    {
-    }
-
-    public Employee(string name, string surname)
-      : base(name, surname)
-    {
-    }
-
-    public Employee(string name)
-      : base(name)
-    {
-    }
-    */
-
-    public void AddScoreAward(float rate)
+        public void AddScoreAward(float rate)
         {
             if (rate >= 0 && rate <= 100)
             {
@@ -49,52 +28,80 @@ namespace challenge_app21
             }
             else
             {
-                throw new Exception($" {rate} out of range please input number from range  0-100");
+                throw new Exception($" {rate} out of range please input number from range  7-100 or ''school rate'' 6,5,4,3,2,1 with optional +/-  or Q/q to quit\"");
             }
         }
 
-
         public void AddScoreAward(string rate)
-
         {
-            if (float.TryParse(rate, out float results))
-            {
-                this.AddScoreAward(results);
-            }
-            else
             {
                 switch (rate)
                 {
-                    case "a":
-                    case "A":
+                    case "6":
                         this.AddScoreAward(100);
                         break;
-                    case "b":
-                    case "B":
+                    case "6-":
+                    case "-6":
+                        this.AddScoreAward(95);
+                        break;
+                    case "5+":
+                    case "+5":
+                        this.AddScoreAward(85);
+                        break;
+                    case "5":
                         this.AddScoreAward(80);
                         break;
-                    case "c":
-                    case "C":
+                    case "5-":
+                    case "-5":
+                        this.AddScoreAward(75);
+                        break;
+                    case "4+":
+                    case "+4":
+                        this.AddScoreAward(65);
+                        break;
+                    case "4":
                         this.AddScoreAward(60);
                         break;
-                    case "d":
-                    case "D":
+                    case "4-":
+                    case "-4":
+                        this.AddScoreAward(55);
+                        break;
+                    case "3+":
+                    case "+3":
+                        this.AddScoreAward(45);
+                        break;
+                    case "3":
                         this.AddScoreAward(40);
                         break;
-                    case "e":
-                    case "E":
+                    case "3-":
+                    case "-3":
+                        this.AddScoreAward(35);
+                        break;
+                    case "2+":
+                    case "+2":
+                        this.AddScoreAward(25);
+                        break;
+                    case "2":
                         this.AddScoreAward(20);
                         break;
-                    case "f":
-                    case "F":
+                    case "2-":
+                    case "-2":
+                        this.AddScoreAward(15);
+                        break;
+                    case "1+":
+                    case "+1":
+                        this.AddScoreAward(5);
+                        break;
+                    case "1":
                         this.AddScoreAward(0);
                         break;
                     default:
-                        throw new Exception("Incorrect letter or string please input letter A/a, B/b,C/c, D/d, E/e, number from range 0-100  or Q/q to quit");
+                        float.TryParse(rate, out float results);
+                        this.AddScoreAward(results);
+                        break;
                 }
             }
         }
-
 
         public void AddScoreAward(char rate)
         {
@@ -102,15 +109,12 @@ namespace challenge_app21
             this.AddScoreAward(rate1);
         }
 
-
-
         public void AddScoreAward(double rate)
         {
             float rate1 = (float)rate;
             this.AddScoreAward(rate1);
         }
 
- 
 
         public Statistics GetStatistic()
         {
@@ -165,3 +169,4 @@ namespace challenge_app21
         }
     }
 }
+
