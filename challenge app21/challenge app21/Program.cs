@@ -3,7 +3,15 @@
 Console.WriteLine("Welcome in employee evaluation app");
 Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-var emp1 = new Supervisor("Marcin", "Winer", "male",39);
+var emp1 = new EmployeeInFile("Marcin", "Winer", "male",39);
+
+/*
+emp1.AddScoreAward('A');
+emp1.AddScoreAward("100");
+emp1.AddScoreAward("100");
+emp1.AddScoreAward(100);
+*/
+
 
 while (true)
 {
@@ -22,6 +30,7 @@ while (true)
         Console.WriteLine ($"Exception catched: {e.Message}");
     }
 }
+
 
 try
 {

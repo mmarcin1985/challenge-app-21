@@ -41,7 +41,7 @@ namespace challenge_app21
     }
     */
 
-    public void AddScoreAward(float rate)
+        public void AddScoreAward(float rate)
         {
             if (rate >= 0 && rate <= 100)
             {
