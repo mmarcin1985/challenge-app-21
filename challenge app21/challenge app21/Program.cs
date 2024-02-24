@@ -3,14 +3,26 @@
 Console.WriteLine("Welcome in employee evaluation app");
 Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-var emp1 = new EmployeeInFile("Marcin", "Winer", "male",39);
+var emp1 = new EmployeeInFile("Marcin", "file", "male",39);
+var emp2 = new EmployeeInFile("Marcin", "mem", "male", 39);
+emp1.GradeAdded += EmployeeGradeAdded;
+emp2.GradeAdded += EmployeeGradeAdded;
 
-/*
+void EmployeeGradeAdded (object sender, EventArgs args)
+{
+    Console.WriteLine("New grade added");
+}
+
 emp1.AddScoreAward('A');
 emp1.AddScoreAward("100");
 emp1.AddScoreAward("100");
 emp1.AddScoreAward(100);
-*/
+
+
+emp2.AddScoreAward('A');
+emp2.AddScoreAward("100");
+emp2.AddScoreAward("100");
+emp1.AddScoreAward(90);
 
 
 while (true)

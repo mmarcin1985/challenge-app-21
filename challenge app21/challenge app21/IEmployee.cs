@@ -1,5 +1,7 @@
 ﻿
 
+using static challenge_app21.EmployeeBase;
+
 namespace challenge_app21
 {
     internal interface IEmployee
@@ -19,6 +21,8 @@ namespace challenge_app21
         void AddScoreAward(char rate);
 
         void AddScoreAward(double rate);
+
+        event GradeAddedDelegate GradeAdded;
 
         Statistics GetStatistic();
     }

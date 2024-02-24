@@ -7,6 +7,9 @@ namespace challenge_app21
     public abstract class EmployeeBase : IEmployee
 
     {
+
+        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+        public abstract event GradeAddedDelegate GradeAdded;
         
         public EmployeeBase(string name, string surname, string sex, int age)
         {

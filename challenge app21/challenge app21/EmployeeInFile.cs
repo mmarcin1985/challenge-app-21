@@ -7,6 +7,7 @@ namespace challenge_app21
     internal class EmployeeInFile : EmployeeBase
     {
         private List<float> score = new List<float>();
+        public override event GradeAddedDelegate GradeAdded;
 
         public EmployeeInFile(string name, string surname, string sex, int age) : base(name, surname, sex, age)
         {
@@ -27,6 +28,10 @@ namespace challenge_app21
                 using (var writer = File.AppendText(this.FileNamer()))
                 {
                     writer.WriteLine(rate);
+                    if (GradeAdded != null)
+                    {
+                        GradeAdded(this, new EventArgs());
+                    }
                 }
             }
             else

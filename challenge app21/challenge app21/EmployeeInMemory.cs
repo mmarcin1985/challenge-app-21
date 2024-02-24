@@ -4,6 +4,7 @@ namespace challenge_app21
     public class EmployeeInMemory : EmployeeBase
     {
         private List<float> score = new List<float>();
+        public override event GradeAddedDelegate GradeAdded;
 
         public EmployeeInMemory(string name, string surname, string sex, int age) : base(name, surname, sex, age)
         {
@@ -14,6 +15,10 @@ namespace challenge_app21
             if (rate >= 0 && rate <= 100)
             {
                 this.score.Add(rate);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
