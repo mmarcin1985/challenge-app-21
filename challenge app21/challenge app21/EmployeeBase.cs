@@ -1,11 +1,7 @@
 ﻿
-
-
 namespace challenge_app21
-{
-    
+{    
     public abstract class EmployeeBase : IEmployee
-
     {
 
         public delegate void GradeAddedDelegate(object sender, EventArgs args);
@@ -18,7 +14,6 @@ namespace challenge_app21
             this.Sex = sex;
             this.Age = age;
         }
-
 
         public string Name { get; private set; }
         public string Surname { get; private set; }
@@ -70,11 +65,11 @@ namespace challenge_app21
         }
 
 
-        public void AddScoreAward(char rate)
-        {
-            string rate1 = rate.ToString();
-            this.AddScoreAward(rate1);
-        }
+    public void AddScoreAward(char rate)
+    {
+        string rate1 = rate.ToString();
+        this.AddScoreAward(rate1);
+    }
         
 
     public void AddScoreAward(double rate)
