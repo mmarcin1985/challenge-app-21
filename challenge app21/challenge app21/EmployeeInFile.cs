@@ -4,7 +4,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace challenge_app21
 {
-    internal class EmployeeInFile : EmployeeBase
+    public class EmployeeInFile : EmployeeBase
     {
         private List<float> score = new List<float>();
         public override event GradeAddedDelegate GradeAdded;
@@ -43,14 +43,14 @@ namespace challenge_app21
 
         // metody dla string, char , double bazuja na metodzie dla float , dzięki przciążeniu float  mogly wrocić do klasy bazowej.
 
-        private void  CreateListFromFile()
+        private void CreateListFromFile()
         {
-            if (File.Exists(this.FileNamer())) 
+            if (File.Exists(this.FileNamer()))
             {
-               using (var reader = File.OpenText(this.FileNamer()))
+                using (var reader = File.OpenText(this.FileNamer()))
                 {
                     var line = reader.ReadLine();
-                    while (line != null) 
+                    while (line != null)
                     {
                         if (float.TryParse(line, out float results))
                         {
@@ -67,12 +67,12 @@ namespace challenge_app21
                         else
                         {
                             line = reader.ReadLine();
-                            
+
                         }
                     }
                 }
             }
-            else 
+            else
             {
                 throw new Exception($" {this.FileNamer} don't exist statistics can not be generated ");
             }
@@ -83,46 +83,11 @@ namespace challenge_app21
         {
             CreateListFromFile();
             var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            statistics.NumberOfNotes = 0;
-            statistics.Rank = 'N';
-            foreach (var score in this.score)
-            {
-                statistics.Max = Math.Max(statistics.Max, score);
-                statistics.Min = Math.Min(statistics.Min, score);
-                statistics.Average += score;
-            }
-
             if (this.score.Count > 0)
             {
-                statistics.Average /= this.score.Count;
-                statistics.NumberOfNotes = this.score.Count;
-
-                switch (statistics.Average)
+                foreach (var score in this.score)
                 {
-                    case var average when average >= 90:
-                        statistics.Rank = 'A';
-                        break;
-                    case var average when average >= 70:
-                        statistics.Rank = 'B';
-                        break;
-                    case var average when average >= 50:
-                        statistics.Rank = 'C';
-                        break;
-                    case var average when average >= 30:
-                        statistics.Rank = 'D';
-                        break;
-                    case var average when average >= 10:
-                        statistics.Rank = 'E';
-                        break;
-                    case var average when average >= 0:
-                        statistics.Rank = 'F';
-                        break;
-                    default:
-                        statistics.Rank = 'N';
-                        break;
+                    statistics.Addgrade(score);
                 }
                 return statistics;
             }

@@ -11,12 +11,12 @@ namespace challenge_app21.Tests
         {
 
             // arrange
-            var empA = new EmployeeInMemory("A", "A", "male", 43);
-            var empB = new EmployeeInMemory("B", "B", "fele", 42);
+            var empA = new EmployeeInFile("A", "A", "male", 43);
+            var empB = new EmployeeInFile("B", "B", "fele", 42);
             var empC = new EmployeeInMemory("C", "C", "male", 43);
             var empD = new EmployeeInMemory("D", "D", "male", 27);
             var empE = new EmployeeInMemory("E", "E", "male", 11);
-            var empF = new EmployeeInMemory("F", "F", "male", 54);
+            var empF = new EmployeeInFile("F", "F", "male", 54);
 
             empA.AddScoreAward('A');
             empB.AddScoreAward("B");
