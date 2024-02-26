@@ -1,4 +1,5 @@
 ﻿
+
 namespace challenge_app21
 {    
     public abstract class EmployeeBase : IEmployee
